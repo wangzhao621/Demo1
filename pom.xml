@@ -8,7 +8,7 @@
 	<name>com-wangzhao-project-demo</name>
 
 	<properties>
-		<spring.version>3.2.2.RELEASE</spring.version>
+		<spring.version>5.2.5.RELEASE</spring.version>
 		<mybatis.version>3.2.6</mybatis.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<stock-itf.version>1.0.1-SNAPSHOT</stock-itf.version>
