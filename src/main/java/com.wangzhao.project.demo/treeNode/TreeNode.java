@@ -1,5 +1,8 @@
 package com.wangzhao.project.demo.treeNode;
 
+/**
+ * 二叉树
+ */
 public class TreeNode {
 
         int key;

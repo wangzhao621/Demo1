@@ -1,9 +1,12 @@
 package com.wangzhao.project.demo.treeNode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class CreateTree {
+
+    TreeNode root;
 
     //建立一颗二叉树
     public List<TreeNode> createTree(){
@@ -15,6 +18,8 @@ public class CreateTree {
         for (int nodeIndex = 0; nodeIndex < array.length;nodeIndex++){
             nodeList.add(new TreeNode(array[nodeIndex]));
         }
+
+        root = nodeList.get(0);
 
         //对LastParentIndex-1个父节点按照父节点和子节点的关系建立二叉树
         for (int parentIndex = 0; parentIndex < array.length/2-1;parentIndex++){
@@ -49,9 +54,12 @@ public class CreateTree {
         return nodeList;
     }
 
+    public void preTraverse(){
+        preOderTraverse(root);
+    }
 
     //前序遍历,递归方式
-    public static void preOderTraverse(TreeNode node)
+    private void preOderTraverse(TreeNode node)
     {
         if(node == null)
             return;
@@ -60,9 +68,53 @@ public class CreateTree {
         preOderTraverse(node.right);
     }
 
+    //中序遍历,递归方式
+    public static void inOrderTraverse(TreeNode node){
+
+        if(node == null)
+            return;
+        inOrderTraverse(node.left);
+        System.out.print(node.key+" ");
+        inOrderTraverse(node.right);
+    }
+
+    //后序遍历,递归方式
+    public static void postOrdeTraverse(TreeNode node){
+
+        if(node == null)
+            return;
+        postOrdeTraverse(node.left);
+        postOrdeTraverse(node.right);
+        System.out.print(node.key+" ");
+    }
+
+    //层序遍历
+    public static void LaywerTraverse(TreeNode node){
+
+        if(node == null)
+            return;
+
+        LinkedList<TreeNode> mList = new LinkedList<TreeNode>();
+        mList.add(node);
+        TreeNode currentNode;
+        while (!mList.isEmpty()){
+            currentNode = mList.poll();
+            System.out.println(currentNode.key);
+            if(currentNode.left != null){
+                mList.add(currentNode.left);
+            }
+            if(currentNode.right != null){
+                mList.add(currentNode.right);
+            }
+        }
+    }
+
+
+
     public static void main(String[] args) {
         CreateTree createTree = new CreateTree();
         List<TreeNode> list = createTree.createTree();
+        createTree.preTraverse();
 //        for(TreeNode treeNode : list){
 //            preOderTraverse(treeNode);
 //        }
