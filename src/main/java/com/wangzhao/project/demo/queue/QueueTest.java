@@ -16,27 +16,27 @@ public class QueueTest {
         }
         System.out.println("------------------------------------");
 
-        System.out.println("poll " + queue.poll());
+        System.out.println("poll " + queue.poll()); // poll --> 删除第一个元素，并返回
 
         for(String q : queue){
             System.out.println(q);
         }
         System.out.println("------------------------------------");
 
-        System.out.println("remove " + queue.remove());
+        System.out.println("remove " + queue.remove()); // remove --> 删除第一个元素，并返回
         for(String q : queue){
             System.out.println(q);
         }
         System.out.println("------------------------------------");
 
         queue.offer("e");
-        System.out.println("element " + queue.element());
+        System.out.println("element " + queue.element()); // element --> 返回第一个元素
         for(String q : queue){
             System.out.println(q);
         }
         System.out.println("------------------------------------");
 
-        System.out.println("peek " + queue.peek());
+        System.out.println("peek " + queue.peek()); // peek --> 返回第一个元素
         for(String q : queue){
             System.out.println(q);
         }
